@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="#">Control | k1n0.com</a>
+        <a class="navbar-brand" href="/control/perfil">Control | k1n0.com</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -8,25 +8,29 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav" style="margin-left: auto;">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+                    <a class="nav-link active" aria-current="page" href="/control/perfil">Inicio</a>
                 </li>
+                {{#if cuser}}
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Suser</a>
+                    <a class="nav-link" href="/control/agregar">Suser</a>
                 </li>
                 <li class="nav-item dropdown">
                     <div class="dropdown">
                         <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            Nombre usuario
+                            {{cuser.cuser}}
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li><a class="dropdown-item" href="#">Usuarios</a></li>
-                            <li><a class="dropdown-item" href="#">Registrar</a></li>
-                            <li><a class="dropdown-item" href="#">Tareas</a></li>
-                            <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+                            <li><a class="dropdown-item" href="/control/users">Usuarios</a></li>
+                            <li><a class="dropdown-item" href="/control/agregar">Registrar</a></li>
+                            <li><a class="dropdown-item" href="/control/tareas">Tareas</a></li>
+                            <li><a class="dropdown-item" href="/control/cerrar">Cerrar Sesión</a></li>
                         </ul>
                     </div>
                 </li>
+                {{else}}
+                <li class="nav-item"><a class="nav-link" href="/control/inicio">Inicia Sesión</a></li>
+                {{/if}}
             </ul>
         </div>
     </div>
