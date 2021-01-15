@@ -1,6 +1,7 @@
 body {
     background: white;
     font-family: 'Kufam', cursive;
+    overflow: hidden;
 }
 
 .icon-trash {
@@ -28,5 +29,44 @@ body {
         transition: all .6s;
         text-decoration: none;
         color: $dred;
+    }
+}
+
+.index {
+    width: 100vw;
+    height: 100vh;
+    .container {
+        margin-top: 180px;
+        color: white;
+        position: absolute;
+        h1 {
+            font-size: 4rem;
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    .masthead {
+        color: white;
+        min-height: 30rem;
+        width: 100%;
+        height: 100%;
+        padding-top: 8rem;
+        background: url('/img/kino-bg-a.jpg');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        .container {
+            display: block;
+            margin: 10rem 10rem 10rem 10rem;
+            padding: 2rem;
+        }
+        
+        @media (min-width: 992px) {
+            .masthead h1 {
+                font-size: 5.5rem;
+            }
+        }
     }
 }
