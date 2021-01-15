@@ -18,6 +18,7 @@ router.post('/agregar', async (req, res) => {
     };
     // console.log(newCommonUser);  Comprueba que se están recibiendo los datos
     await pool.query('INSERT INTO users SET ?', [newCommonUser]) // Tercero: guarda en la db
+    req.flash('success', 'Usuario registrado correctamente');
     res.redirect('/control/users');
 });
 
@@ -31,6 +32,7 @@ router.get('/users/delete/:id', async (req, res) => {
     const { id } = req.params; // Eliminar usuario
     // console.log(id); // comprueba que se reciben los datos
     await pool.query('DELETE FROM users WHERE id = ?', [id]);
+    req.flash('success', 'Usuario eliminado correctamente');
     res.redirect('/control/users');
 });
 
@@ -54,6 +56,7 @@ router.post('/users/editar/:id', async (req, res) => {
         email
     };
     await pool.query('UPDATE users SET ? WHERE id = ?', [newCommonUser, id]);
+    req.flash('success', 'Usuario actualizado correctamente');
     res.redirect('/control/users');
 });
 

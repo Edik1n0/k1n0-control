@@ -2,6 +2,11 @@ const express = require('express');
 const morgan = require('morgan');
 const exphbs = require('express-handlebars');
 const path = require('path');
+const flash = require('connect-flash');
+const session = require('express-session');
+const mySQLStore = require('express-mysql-session');
+
+const { database } = require('./keys');
 
 // Init
 const app = express();
@@ -19,13 +24,20 @@ app.engine('.hbs', exphbs({
 app.set('view engine', '.hbs');
 
 // Midd
+app.use(session({
+    secret: 'k1n0c0ntrol',
+    resave: false,
+    saveUninitialized: false,
+    store: new mySQLStore(database)
+}));
+app.use(flash());
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false})); // Aceptar los datos enviados desde formularios
 app.use(express.json());
 
 // Global
 app.use((req, res, next) => {
-
+    app.locals.success = req.flash('success');
     next();
 });
 
