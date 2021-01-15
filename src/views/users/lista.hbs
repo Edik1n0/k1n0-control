@@ -1,0 +1,43 @@
+<div class="users__list">
+    <div class="container">
+        <div class="list--header">
+            <h1>Control de usuarios | k1n0</h1>
+        </div>
+        <div class="list--body">
+            <div class="container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Usuario</th>
+                            <th scope="col">Teléfono</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each users}}
+                        <tr>
+                            <th scope="row">{{id}}</th>
+                            <td>{{fullname}}</td>
+                            <td>{{username}}</td>
+                            <td>{{phone}}</td>
+                            <td>
+                                <a href="/control/users/delete/{{id}}" class="icon-trash"></a>
+                                <a href="/control/users/editar/{{id}}" class="icon-plus-circled"></a>
+                            </td>
+                        </tr>
+                        {{else}}
+                        <tr>
+                            <th scope="row">0</th>
+                            <td>No hay datos</td>
+                            <td>De usuarios</td>
+                            <td><a class="link-white" href="/control/agregar">Crea uno</a></td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

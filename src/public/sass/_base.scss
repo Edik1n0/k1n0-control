@@ -1,0 +1,32 @@
+body {
+    background: white;
+    font-family: 'Kufam', cursive;
+}
+
+.icon-trash {
+    color: $red;
+    font-size: 24px;
+    &:hover {
+        transition: all .6s;
+        color: $dred;
+    }
+}
+
+.icon-plus-circled {
+    color: green;
+    font-size: 24px;
+    &:hover {
+        transition: all .6s;
+        color: lightgreen;
+    }
+}
+
+.link-white {
+    color: $red;
+    text-decoration: none;
+    &:hover {
+        transition: all .6s;
+        text-decoration: none;
+        color: $dred;
+    }
+}
