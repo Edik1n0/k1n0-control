@@ -49,6 +49,7 @@ app.use((req, res, next) => {
 
 // Routes
 app.use(require('./routes/index'));
+app.use(require('./routes/links'));
 app.use(require('./routes/auth'));
 app.use('/control', require('./routes/users')); // Agregar usuarios desde el control
 
